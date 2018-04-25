@@ -1,0 +1,52 @@
+  //No CSS Grid settings
+  $box-padding: 20px;
+  .float {
+    float: left;
+  }
+  .full, .one-quarter, .two-quarter, .three-quarter, .one-third, .two-third {
+    width: 100%;
+    padding: $box-padding;
+  }
+
+  @media only screen and (min-width: $breakpoint-small) {
+    .full {
+      width: 100%;
+    }
+    .one-quarter {
+      width: calc(100% / 4);
+    }
+    .two-quarter {
+      width: calc(100% / 2);
+    }
+    .three-quarter {
+        width: calc((100% / 4) * 3);
+    }
+    .one-third {
+      width: calc(100% / 3);
+    }
+    .two-third {
+      width: calc((100% / 3) * 2);
+    }
+  }
+  @supports not (grid-area: auto) {
+    .layout-page-flex {
+      .header {
+        @extend .full;
+      }
+      .sidebar {
+        @extend .one-third;
+        @extend .float;
+      }
+      .content {
+        @extend .two-third;
+        @extend .float;
+      }
+      .footer {
+        @extend .full;
+      }
+    }
+  }
+
+
+
+
