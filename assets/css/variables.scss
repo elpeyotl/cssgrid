@@ -1,3 +1,9 @@
+/************
+SET THE VARIABLES YOU USE IN YOUR PROJECT
+Like colors, page width, breakpoints etc.
+*************/
+
+//Colors
 .bg-primary {
   background-color: lightblue;
 }
@@ -11,7 +17,7 @@
   background-color: lightgoldenrodyellow;
 }
 
-//All the variables for the layout
+//Layout
 $max-page-width: 1280px;
 
 //Breakpoints
@@ -19,7 +25,10 @@ $breakpoint-small: 500px;
 $breakpoint-medium: 1020px;
 $breakpoint-large: 1440px;
 
-//Use CSS Grid or not
+/******
+Use CSS Grid
+If set to false it loads layout-flex.scss
+*******/
 $css-grid: true;
 
 

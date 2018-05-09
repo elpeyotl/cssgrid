@@ -1,12 +1,13 @@
 module.exports = {
   router: {
    //base: '/grid/'
+   //base: '/demos/nuxt-bulma/bulma-demo/dist/'
    },
   /*
   ** Headers of the page
   */
   head: {
-    title: 'bulma-demo',
+    title: 'CSS Grid with fallback',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -36,6 +37,17 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    }
+    },
+     //Need to do that for targeting IE 11
+     vendor: ['babel-polyfill'],
+     babel: {
+       presets: [
+         ['vue-app', {
+           useBuiltIns: true,
+           targets: { ie: 11, uglify: true },
+         },
+         ],
+       ],
+     }
   }
 }

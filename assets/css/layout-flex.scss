@@ -1,52 +1,81 @@
+/******************
+CSS GRID FALLBACK
+If $cssGrid is set to false or Browser
+does not support CSSGrid
+this file gets loaded instead and
+injects the "layout-page-flex" mixin into body.no-grid
+
+Adapt it to your needs
+**********************/
+
+//important mixins
+@mixin breakpoint($point) {
+  @media (min-width: $point) { @content ; }
+}
+@mixin float {
+  float: left;
+}
+
+//Small Custom Grid
+@mixin full {
+  width: 100%;
+}
+@mixin one-quarter {
+  width: 100%;
+  @include breakpoint($breakpoint-small) {
+  width: calc(100% / 4);
+  }
+}
+@mixin two-quarter {
+  width: 100%;
+  @include breakpoint($breakpoint-small) {
+  width: calc(100% / 2);
+  }
+}
+@mixin three-quarter {
+  width: 100%;
+  @include breakpoint($breakpoint-small) {
+    width: calc((100% / 4) * 3);
+  }
+}
+@mixin one-third {
+  width: 100%;
+  @include breakpoint($breakpoint-small) {
+  width: calc(100% / 3);
+  }
+}
+@mixin two-third {
+  width: 100%;
+  @include breakpoint($breakpoint-small) {
+  width: calc((100% / 3) * 2);
+  }
+}
+
+/*********
+THE NO CSS GRID LAYOUT
+
+This is injected into body.no-grid
+***********/
+
+@mixin layout-page-flex {
   //No CSS Grid settings
   $box-padding: 20px;
-  .float {
-    float: left;
-  }
-  .full, .one-quarter, .two-quarter, .three-quarter, .one-third, .two-third {
-    width: 100%;
-    padding: $box-padding;
-  }
-
-  @media only screen and (min-width: $breakpoint-small) {
-    .full {
-      width: 100%;
-    }
-    .one-quarter {
-      width: calc(100% / 4);
-    }
-    .two-quarter {
-      width: calc(100% / 2);
-    }
-    .three-quarter {
-        width: calc((100% / 4) * 3);
-    }
-    .one-third {
-      width: calc(100% / 3);
-    }
-    .two-third {
-      width: calc((100% / 3) * 2);
-    }
-  }
-  @supports not (grid-area: auto) {
-    .layout-page-flex {
       .header {
-        @extend .full;
+        @include full;
+        color: green;
       }
       .sidebar {
-        @extend .one-third;
-        @extend .float;
+        @include one-third;
+        @include float;
       }
       .content {
-        @extend .two-third;
-        @extend .float;
+        @include two-third;
+        @include float;
       }
       .footer {
-        @extend .full;
+        @include full;
       }
-    }
   }
-
 
 
 

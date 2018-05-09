@@ -5,7 +5,7 @@
         <div class="sidebar-inner  bg-secondary">Sidebar</div>
       </div>
       <div class="bg-primary content">
-        <div class="sidebar-inner bg-secondary content-inner">Content</div>
+        <div class="content-inner bg-secondary content-inner">Content</div>
       </div>
     <footer class="bg-third">FOOTER</footer>
   </section>
